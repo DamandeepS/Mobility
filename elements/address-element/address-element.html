@@ -1,0 +1,22 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<polymer-element name="address-element" noscript>
+    <template>
+        <style>
+            div.container {
+                margin: 0 auto;
+                text-align: left;
+            }
+            
+            button#submit-address {
+                background: #ccc;
+                color: #333;
+                border: 1px solid #ccc;
+                border-radius: none;
+            }
+        </style>
+        <div class="container">
+        <textarea id="address" placeholder="Enter address here"></textarea>
+            <button type="submit" id="submit-address">Save to Localhost</button>
+        </div>
+    </template>
+</polymer-element>
