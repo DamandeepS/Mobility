@@ -2,20 +2,32 @@
 <polymer-element name="address-element" noscript>
     <template>
         <style>
+            * {
+                font-family: Roboto, Arial, sans-serif;
+            }
+            
             div.container {
                 margin: 0 auto;
                 text-align: left;
+                width: 500px;
+            }
+            
+            textarea#textarea-address {
+                width: 100%;
+                display: block;
+                margin: 10px auto;
             }
             
             button#submit-address {
-                background: #ccc;
-                color: #333;
-                border: 1px solid #ccc;
-                border-radius: none;
+                background: #777;
+                color: #fff;
+                border: 1px solid #777;
+                border-radius: 0;
+                padding: 7px;
             }
         </style>
         <div class="container">
-        <textarea id="address" placeholder="Enter address here"></textarea>
+            <textarea id="textarea-address" rows="10" placeholder="Enter address here"></textarea>
             <button type="submit" id="submit-address">Save to Localhost</button>
         </div>
     </template>
