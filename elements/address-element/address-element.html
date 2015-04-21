@@ -1,12 +1,13 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<polymer-element name="address-element" noscript>
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<polymer-element name="address-element" >
     <template>
         <style>
             * {
                 font-family: Roboto, Arial, sans-serif;
             }
             
-            div.container {
+            div#container {
                 margin: 0 auto;
                 text-align: left;
                 width: 500px;
@@ -17,6 +18,22 @@
                 display: block;
                 margin: 10px auto;
             }
+            paper-toast#toast1{
+             top:100px;
+             bottom:1100px;
+             left:500px;
+
+
+            }
+             paper-toast#toast2{
+             top:100px;
+             bottom:1100px;
+             left:500px;
+
+
+            }
+
+
             
             button#submit-address {
                 background: #777;
@@ -26,9 +43,37 @@
                 padding: 7px;
             }
         </style>
-        <div class="container">
-            <textarea id="textarea-address" rows="10" placeholder="Enter address here"></textarea>
-            <button type="submit" id="submit-address">Save to Localhost</button>
+        <div id="container">
+            <textarea id="textarea-address" rows="10" placeholder="Enter address here" ></textarea>
+            <paper-toast id="toast1" text="Please enter your address"></paper-toast>
+            <paper-toast id="toast2" text="Done!"></paper-toast>
+            <button type="submit" id="submit-address" on-click={{saveData}}>Save to Localhost</button>
         </div>
     </template>
+    <script>
+    Polymer('address-element',{
+
+            saveData:function(e){
+                var address=this.$.container.querySelector
+                    ('#textarea-address').value;
+                    if(address==""){
+                        this.$.container.querySelector
+                    ('#toast1').show();
+
+
+                    }
+                    else {
+                        localStorage.setItem("address",address);
+                          this.$.container.querySelector
+                    ('#toast2').show();
+
+
+                    }
+                    console.log(localStorage);
+
+
+            }
+    });
+
+    </script>
 </polymer-element>
