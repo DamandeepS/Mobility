@@ -1,12 +1,36 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-
+<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
 <polymer-element name="time-sheet">
 <template>
+<style type="text/css">
+	div#main {
+                margin: 0 auto;
+                text-align: center;
+                width: 500px;
+            }
+</style>
    <h1> time sheet</h1>
+   <div id="main">
+   <paper-input-decorator label="work-description">
+              <input type="text" name="desc">
+          </paper-input-decorator>
+          <paper-input-decorator label="time">
+              <input type="time" id="hours" min="9:00" max="17:00" step="900">
+          </paper-input-decorator>
+            <button type="submit" id="submit-time" on-click={{savetime}}>Save to Localhost</button>
+    </div>
 </template>
 <script>
-Polymer({
+Polymer('time-sheet',{
 
-});
+            savetime:function(e){
+                var time=this.$.main.querySelector
+                    ('#hours').value;
+                   console.log(time);
+                        localStorage.setItem("time",time);
+                      console.log(localstorage);  
+            }
+    });
+
 </script>
 </polymer-element>
