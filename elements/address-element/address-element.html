@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/paper-input-decorator/paper-input-decorator.html">
 <polymer-element name="address-element" >
     <template>
         <style>
@@ -47,6 +48,9 @@
             <textarea id="textarea-address" rows="10" placeholder="Enter address here" ></textarea>
             <paper-toast id="toast1" text="Please enter your address"></paper-toast>
             <paper-toast id="toast2" text="Done!"></paper-toast>
+            <paper-input-decorator label="date">
+              <input id="date" name="startdate" min="2012-01-01" max="2022-01-01" type="date">
+          </paper-input-decorator>
             <button type="submit" id="submit-address" on-click={{saveData}}>Save to Localhost</button>
         </div>
     </template>
@@ -71,7 +75,16 @@
                     }
                     console.log(localStorage);
 
+                    var dateselected=this.$.container.querySelector('#date').value;
+                    console.log(dateselected);
+                     if(dateselected ==""){
+                       alert("enter date");
 
+
+                    }
+                    else {
+                        localStorage.setItem("date",dateselected);
+                    }
             }
     });
 
